@@ -41,7 +41,7 @@ import os
 st = zl.zipcodes_list(st_items=["10956"])
 
 # Initialize the webdriver.
-driver = zl.init_driver(os.getcwd() + "/dependencies/chromedriver")
+driver = zl.init_driver(os.getcwd() + "/resources/dependencies/chromedriver")
 
 # Go to www.zillow.com/homes
 zl.navigate_to_website(driver, "http://www.zillow.com/homes")
@@ -151,5 +151,6 @@ columns = ['address', 'city', 'state', 'zip', 'price', 'sqft', 'bedrooms',
            'bathrooms', 'days_on_zillow', 'sale_type', 'url']
 df = df[columns]
 dt = time.strftime("%Y-%m-%d") + "_" + time.strftime("%H%M%S")
+file_path = os.getcwd() + "/resources/data/"
 file_name = str(dt) + ".csv"
-df.to_csv(file_name, index=False)
+df.to_csv(file_path + file_name, index=False)

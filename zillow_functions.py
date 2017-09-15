@@ -275,7 +275,7 @@ def get_bathrooms(list_obj):
 def get_days_on_market(soup_obj):
     try:
         dom = soup_obj.find_all(
-            "span", {"class" : "zsg-photo-card-notification"})
+            "ul", {"class": "zsg-list_inline zsg-photo-card-badge"})
         dom = [n for n in dom if "illow" in n.get_text()]
         if len(dom) > 0:
             dom = dom[0].get_text().strip()
